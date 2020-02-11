@@ -20,7 +20,30 @@ public class HomeViewModel extends AndroidViewModel {
     private ApiService mApiService;
     public HomeViewModel(@NonNull Application application) {
         super(application);
-        mContext = application.getApplicationContext();
+
+
+//        The view model should only know about the application context. the application context can:
+//
+//        Start a service
+//
+//        Bind to a service
+//
+//        Send a broadcast
+//
+//        Register a broadcast receiver
+//
+//        Load resource values
+//
+//        It cannot:
+//
+//        Show a dialog
+//
+//        Start an activity
+//
+//        Inflate a layout
+//
+//
+                mContext = application.getApplicationContext();
     }
 
     public LiveData<DataItem> getData() {

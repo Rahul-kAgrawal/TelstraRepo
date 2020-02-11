@@ -1,10 +1,6 @@
 package com.telstra.assignment.model;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class DataListItem {
 

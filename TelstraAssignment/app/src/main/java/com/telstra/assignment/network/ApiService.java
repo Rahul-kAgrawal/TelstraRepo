@@ -9,5 +9,4 @@ public interface ApiService {
 
     @GET("facts.json")
     Call<DataItem> getData();
-
 }
