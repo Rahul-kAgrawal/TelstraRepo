@@ -6,7 +6,7 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.telstra.assignment.model.DataItem;
-import com.telstra.assignment.network.ApiInterface;
+import com.telstra.assignment.network.ApiService;
 import com.telstra.assignment.network.RestApiClient;
 
 import org.junit.Test;
@@ -15,7 +15,6 @@ import org.junit.runner.RunWith;
 import java.io.IOException;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 import static org.junit.Assert.*;
@@ -32,9 +31,9 @@ public class ViewModelTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        ApiInterface mApiInterface = RestApiClient.getRetrofit(appContext).create(ApiInterface.class);
+        ApiService mApiService = RestApiClient.getApiClient(appContext).getService();
 
-        Call<DataItem> call = mApiInterface.getData();
+        Call<DataItem> call = mApiService.getData();
         try {
             Response<DataItem> response = call.execute();
             assertTrue(response.isSuccessful());

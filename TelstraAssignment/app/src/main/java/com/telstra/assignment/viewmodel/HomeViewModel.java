@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.telstra.assignment.R;
 import com.telstra.assignment.model.DataItem;
-import com.telstra.assignment.network.ApiInterface;
+import com.telstra.assignment.network.ApiService;
 import com.telstra.assignment.network.RestApiClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,7 +17,7 @@ import retrofit2.Response;
 public class HomeViewModel extends AndroidViewModel {
     private Context mContext;
     private MutableLiveData<DataItem> mDataItem;
-    private ApiInterface mApiInterface;
+    private ApiService mApiService;
     public HomeViewModel(@NonNull Application application) {
         super(application);
         mContext = application.getApplicationContext();
@@ -35,7 +35,7 @@ public class HomeViewModel extends AndroidViewModel {
 
     private void loadData() {
         setupApiClient();
-        Call<DataItem> call = mApiInterface.getData();
+        Call<DataItem> call = mApiService.getData();
 
         call.enqueue(new Callback<DataItem>() {
             @Override
@@ -58,6 +58,6 @@ public class HomeViewModel extends AndroidViewModel {
     }
 
     private void setupApiClient() {
-        mApiInterface = RestApiClient.getRetrofit(mContext).create(ApiInterface.class);
+        mApiService = RestApiClient.getApiClient(mContext).getService();
     }
 }
