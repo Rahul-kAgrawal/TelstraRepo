@@ -2,30 +2,21 @@ package com.telstra.assignment.viewmodel;
 
 import android.app.Application;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.text.TextUtils;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import com.telstra.assignment.R;
 import com.telstra.assignment.model.DataItem;
-import com.telstra.assignment.model.DataListItem;
 import com.telstra.assignment.network.ApiInterface;
 import com.telstra.assignment.network.RestApiClient;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeViewModel extends AndroidViewModel {
     private Context mContext;
-    public MutableLiveData<DataItem> mDataItem;
+    private MutableLiveData<DataItem> mDataItem;
     private ApiInterface mApiInterface;
     public HomeViewModel(@NonNull Application application) {
         super(application);
@@ -42,7 +33,7 @@ public class HomeViewModel extends AndroidViewModel {
     }
 
 
-    public void loadData() {
+    private void loadData() {
         setupApiClient();
         Call<DataItem> call = mApiInterface.getData();
 
@@ -66,12 +57,7 @@ public class HomeViewModel extends AndroidViewModel {
         });
     }
 
-    /*private boolean isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return cm.getActiveNetworkInfo() != null;
-    }*/
-
-    public void setupApiClient() {
+    private void setupApiClient() {
         mApiInterface = RestApiClient.getRetrofit(mContext).create(ApiInterface.class);
     }
 }
