@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">TelstraAssignment</string>
-    <string name="action_settings">Settings</string>
-    <string name="response_failure">Request Failed...</string>
+    <string name="response_failure">Something Went Wrong.</string>
+    <string name="network_failure">Network not connected.</string>
 </resources>

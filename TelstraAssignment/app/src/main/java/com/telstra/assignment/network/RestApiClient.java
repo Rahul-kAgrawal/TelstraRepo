@@ -7,12 +7,12 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ServiceApiClient {
+public class RestApiClient {
 
     public static final String BASE_URL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/";
     private static Retrofit retrofit = null;
 
-    private ServiceApiClient() {
+    private RestApiClient() {
     }
 
     public static Retrofit getRetrofit(Context mContext) {
