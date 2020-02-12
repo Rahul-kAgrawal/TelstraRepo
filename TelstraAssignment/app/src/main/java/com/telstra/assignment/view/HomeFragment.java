@@ -62,8 +62,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mDataListView = view.findViewById(R.id.dataListView );
         mRefreshLayout = view.findViewById(R.id.swipeRefreshLayout );
+        mDataListView = view.findViewById(R.id.dataListView );
         mDataListView = view.findViewById(R.id.dataListView );
         disposable = new CompositeDisposable();
         addInternetConnectionListener();
@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 
     private void getData() {
-        mViewModel.getData().observe(this, new Observer<DataItem>() {
+        mViewModel.getObservable().observe(this, new Observer<DataItem>() {
             @Override
             public void onChanged(DataItem response) {
                 if(response.isSuccess()) {

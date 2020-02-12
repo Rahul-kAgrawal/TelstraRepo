@@ -1,4 +1,4 @@
-package com.telstra.assignment.network;
+package com.telstra.assignment.service;
 
 import com.telstra.assignment.model.DataItem;
 

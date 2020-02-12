@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
 public class DataItem {
     @SerializedName("title")
     private String title;
@@ -38,6 +39,4 @@ public class DataItem {
     public List<DataListItem> getItemList() {
         return mListItem;
     }
-
-
 }
